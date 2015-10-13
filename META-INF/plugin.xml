@@ -1,0 +1,50 @@
+<idea-plugin version="1">
+  <id>com.zzzmode.idea.plugin.monkeyrunner</id>
+  <name>Monkeyrunner script</name>
+  <version>1.0</version>
+  <vendor email="zlcn2200@yeah.net" url="https://github.com/8enet/monkeyrunner-idea-plugin">8enet</vendor>
+
+  <description><![CDATA[
+      run monkeyrunner script in idea.
+    ]]></description>
+
+  <!--<change-notes><![CDATA[-->
+      <!--Add change notes here.<br>-->
+      <!--<em>most HTML tags may be used</em>-->
+    <!--]]>-->
+  <!--</change-notes>-->
+
+  <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
+  <idea-version since-build="131"/>
+
+  <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+
+  -->
+  <depends>com.intellij.modules.lang</depends>
+  <depends optional="true">com.intellij.modules.python</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+    <projectConfigurable instance="com.zzzmode.idea.plugin.monkeyrunner.MonkeyrunnerConfigurable" />
+    <projectService serviceImplementation="com.zzzmode.idea.plugin.monkeyrunner.OptionsConfiguration"/>
+  </extensions>
+
+  <application-components>
+     <!--Add your application components here-->
+  </application-components>
+
+  <project-components>
+    <!-- Add your project components here -->
+  </project-components>
+
+  <actions>
+    <!-- Add your actions here -->
+    <action id="monkeyrunner_run" class="com.zzzmode.idea.plugin.monkeyrunner.MonkeyrunnerRunAction"
+            text="monkeyrunner_run"  description="monkeyrunner run action">
+      <add-to-group group-id="RunContextPopupGroup" anchor="last"  />
+    </action>
+  </actions>
+
+</idea-plugin>
